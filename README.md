@@ -4,7 +4,14 @@
 
 This project is an implementation of a **Dielectric Microfacet Bidirectional Scattering Distribution Function (BSDF)** using the **GGX normal distribution function** for physically-based rendering. The BSDF accounts for both **ideal reflection** and **refraction** using **Fresnel equations** and supports varying roughness parameters for realistic rendering of dielectric materials such as glass. 
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/88f16cfa-d1f0-4b27-8f43-962a0afbe64f" alt="Roughness 0.005" width="45%" />
+  <img src="https://github.com/user-attachments/assets/255f38b1-e14e-40f6-8085-871ca854db16" alt="Roughness 0.5" width="45%" />
+</p>
 
+<p align="center">
+  <b>Figure 1:</b> Rendered images with Roughness values - Left: 0.005 (smooth surface), Right: 0.5 (rough surface).
+</p>
 
 ## Features
 
@@ -39,6 +46,15 @@ tuple<Vec3f, float> sample(Vec3f wo_world, Vec3f n, Vec3f u) const {
     return {wi_world, 1.0f};
 }
 ```
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/f9929dfd-4f5c-4933-8c77-4b17459b3058" alt="Reflection" width="45%" />
+  <img src="https://github.com/user-attachments/assets/d254fc65-36bd-4eae-8ff7-040bcbaa3420" alt="Transmission" width="45%" />
+</p>
+
+<p align="center">
+  <b>Figure 2:</b> Ideal Reflection (left) and Ideal Transmission (right) results using the BSDF model.
+</p>
+
 #### 2. GGX Microfacet Distribution
 - Models the microfacet distribution using a roughness parameter `g`.  
 - Implements **Shadow-Masking** functions to ensure energy conservation.  
